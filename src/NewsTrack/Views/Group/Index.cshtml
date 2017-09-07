@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div data-bind="with: koStoryByGroup" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div data-bind="foreach: categories">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 category">
+            <div class="heading">
+                <span class="title" data-bind="text: CategoryName"></span>
+                <a class="view-more" data-bind="attr: { href: '/Category/' + ID() ,title:CategoryName}" data-target=".detail-container">more ...</a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 top story" data-bind="with: topstory">
+                <a data-bind="attr: { href: '/Story/' + Id  ,title:Title}" data-target=".detail-container">
+                    <img border="0" data-bind="attr: { src: LinkIcon }">
+                    <span data-bind="text: Title"></span>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 next story">
+                <ul class="list list-unstyled" data-bind="foreach: stories,event: { scroll: scrolled(event)}">
+                    <li>
+                        <a data-bind="attr: { href: '/Story/' + Id  ,title:Title}" data-target=".detail-container">
+                            <img border="0" data-bind="attr: { src: LinkIcon }">
+                            <span data-bind="text: Title"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section groupdetail{*@
+<script>
+    $(document).ready(function (d, e) {
+        ko.cleanNode($('div.detail-container')[0]);
+        ko.applyBindings({ koStoryByGroup: vmStoryByGroup }, $('div.detail-container')[0]);
+        vmStoryByGroup.init();
+    })
+</script>
+@*  }*@

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d0a3dd00b3d4809a83bef8c01eaa3e4" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="NTModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="NTModel.AspNetUser" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="NTModel.Category" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="NTModel.Comment" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NTModel.Group" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="NTModel.Like" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="NTModel.Story" Width="1.5" PointX="7.5" PointY="6.75" />
+        <EntityTypeShape EntityType="NTModel.StoryData" Width="1.5" PointX="9.75" PointY="11" />
+        <AssociationConnector Association="NTModel.FK_nt_AspNetUserLogins_nt_AspNetUsers_UserId" />
+        <AssociationConnector Association="NTModel.FK_Category_AspNetUsers" />
+        <AssociationConnector Association="NTModel.FK_Comment_AspNetUsers" />
+        <AssociationConnector Association="NTModel.FK_Group_AspNetUsers" />
+        <AssociationConnector Association="NTModel.FK_Like_AspNetUsers" />
+        <AssociationConnector Association="NTModel.FK_Category_Group" />
+        <AssociationConnector Association="NTModel.FK_Story_Category" />
+        <AssociationConnector Association="NTModel.FK_Comment_Story" />
+        <AssociationConnector Association="NTModel.FK_StoryData_Story" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

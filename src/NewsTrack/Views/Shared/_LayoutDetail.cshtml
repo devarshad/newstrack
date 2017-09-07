@@ -1,0 +1,100 @@
+﻿@{
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_LayoutIn.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12 col-md-12 hidden-xs breadcrumb-holder" data-bind="with:koSM">
+        <div class="crumbs">
+            <ul class="list-unstyled" style=" display: inline-block;" data-bind="foreach:sitemaps">
+                <li>
+                    <a data-bind="attr:{href:Url},text:Title" data-target=".container-section"></a><i class="fa fa-angle-right" style="font-size: 28px; font-weight: 700; color: #b35992;"></i>
+                </li>
+            </ul>
+            <span data-bind="with:last">
+                <b data-bind="text:Title"></b>
+            </span>
+            @*<a href="/">Singapore Seen</a><i class="fa fa-angle-right" style="font-size: 28px; font-weight: 700; color: #b35992;"></i>
+                <b>This Urban Jungle</b>*@
+        </div>
+    </div>
+</div>
+<div class="row top5">
+    <div class="col-xs-12 col-md-2 sidebar-list">
+        <!--left content -->
+        <div class="hidden-xs hidden-sm">
+            <section class="region region-sidebar-left column sidebar">
+                @*<div id="block-menu-menu-categories-menu" class="block-menu first odd" role="navigation" data-bind="with: koDetailLayout">
+                        <div class="cat_sidebar_header">CATEGORIES</div>
+                        <ul class="cat_sidebar" data-bind="foreach: categoryList">
+                            <li>
+                                <h2><a href="#" class="menu__link" data-bind="text: Title, attr: { href: '/' + ID }">Hot Topics</a></h2>
+                            </li>
+                        </ul>
+                        <div class="gap15"></div>
+                    </div>*@
+                @*<div id="block-views-sidebar-photo-galleries" class="block-views last even">
+                        <div class="cat_sidebar_header">PHOTO GALLERIES</div>
+                        <ul class="pg_sidebar" data-bind="with: koDetailLayout">
+                            <div data-bind="foreach: photoGalleryList">
+                                <div class="view-content">
+                                    <li class="">
+                                        <h3>
+                                            <a href="#">
+                                                <img class="img-responsive" typeof="foaf:Image" data-bind="attr: { src: src, alt: Title }" width="122" height="74"><span data-bind="    text: Title"></span>
+                                            </a>
+                                        </h3>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>*@
+            </section>
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-6 detail-container">
+        @RenderBody()
+    </div>
+    @*<div class="col-xs-12 col-lg-4 sidebar-list">
+            <div id="sidebox">
+                <div class="sidebox_header">DON'T MISS THESE...</div>
+                <div style="clear: both"></div>
+                <ul class="dmt_sidebar" data-bind="with: koDetailLayout">
+                    <div class="view view-sidebar view-id-sidebar ">
+                        <div data-bind="foreach: dontMissList">
+                            <li class="">
+                                <h3>
+                                    <a href="/this-urban-jungle/what-say-you-would-you-forgive-someone-if-they-cheated-on-you">
+                                        <img class="img-responsive" typeof="foaf:Image" data-bind="attr: { src: src, alt: Title }" width="122" height="74"><span data-bind="    text: Title"></span>
+                                    </a>
+                                </h3>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>*@
+</div>
+<script>
+    $(document).ready(function (d, e) {
+        //ko.applyBindings({ koDetailLayout: vmDetailLayout }, $('div.sidebar-list')[0]);
+        //vmDetailLayout.init();
+        ko.applyBindings({ koSM: vmSM }, $('div.breadcrumb-holder')[0]);
+    })
+</script>
+
+@*@section detaillayout{
+        <script>
+            $(document).ready(function (d, e) {
+                ko.applyBindings({ koDetailLayout: vmDetailLayout }, $('div.sidebar-list')[0]);
+                vmDetailLayout.init();
+            })
+        </script>
+    }*@
+@*@section storydetail{
+        @RenderSection("storydetail", required: false)
+    }
+    @section categorydetail{
+        @RenderSection("categorydetail", required: false)
+    }
+    @section groupdetail{
+        @RenderSection("groupdetail", required: false)
+    }*@

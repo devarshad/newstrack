@@ -1,0 +1,50 @@
+﻿@using NewsTrack.Models
+@model NewsTrack.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row border-box">
+    <div class="title">
+        Sign Up
+        <div class="extra_info">
+            It's free and always will be.
+        </div>
+    </div>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "Please fix following error", new { @class = "text-danger" }, "strong")
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-sm" })
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="control-label">Captcha Challenge:</label>
+                <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+                <div class="g-recaptcha" data-sitekey="6LfoXQ8TAAAAALJB9LE_Hbc2xOst1Ka3UvXSANUO"></div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-default btn-sm" value="Register" />
+            </div>
+        }
+    </div>
+
+    <div class="col-md-6">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </div>
+
+</div>

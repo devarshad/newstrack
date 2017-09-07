@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/stories")
+<div class="navbar navbar-fixed-top navbar-newstrack">
+    <div class="navbar-header">
+        @Html.ActionLink("New Track", "", "", new { area = "" }, new { @class = "navbar-brand" })
+        <div class="top-first-right">
+            <a href="#" class="Search Add_Feed_Icon" rel="global_attachment_status"></a>
+            <a href="#" class="Right-Setting Add_Feed_Icon" rel="global_attachment_status"></a>
+            <span>
+                <a href="#" class="User Add_Feed_Icon" rel="global_attachment_status"></a>
+                <a href="#" class="List Add_Feed_Icon" rel="global_attachment_status"></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="min-height:85vh">
+    <div class="col-lg-12">
+        <div class="navbar navbar-newstrack">
+            <div class="top-second-mid">
+                <a href="#" class="navbar-toggle Add_Feed_Icon" rel="global_attachment_status" data-toggle="collapse" data-target=".navbar-collapse"></a>
+                <a href="#" class="Notifications Add_Feed_Icon" rel="global_attachment_status"></a>
+                <a href="#" class="AddPost Add_Feed_Icon" rel="global_attachment_status"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav list-unstyled" id="navlist">
+                    <li><a href="/" title="News Track" data-target=".container-section">Home</a></li>
+                    <li><a href="/Group/1" title="Sports" data-target=".container-section">Sports</a></li>
+                    <li><a href="/Group/2" title="Food" data-target="container-section">Food</a></li>
+                    <li><a href="http://whatsayyou.stomp.com.sg/">What Say You</a></li>
+                    <li><a href="http://youthphoria.stomp.com.sg/">Youthphoria</a></li>
+                    <li><a href="http://singaporeseen.stomp.com.sg/category/get-inspired">Get Inspired</a></li>
+                    <li><a href="http://club.stomp.com.sg/">Club Stomp</a></li>
+                    <li><a href="http://club.stomp.com.sg/stomp-testimonials">Testimonials</a></li>
+                    <li><a href="http://www.razor.tv/">RazorTV</a></li>
+                    <li class="contribute">
+                        <a style="color:yellow" href="http://www.stomp.com.sg/contribution/">
+                            Contribute Here <i class="fa fa-angle-double-up" style="font-size:16px;font-weight:700;"></i>
+                        </a>
+                    </li>
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 container-section">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+@*@section  stories{
+        @Scripts.Render("~/bundles/stories")
+    }
+    @section detaillayout{
+        @RenderSection("detaillayout", required: false)
+    }
+    @section storydetail{
+        @RenderSection("storydetail", required: false)
+    }
+    @section categorydetail{
+        @RenderSection("categorydetail", required: false)
+    }
+    @section groupdetail{
+        @RenderSection("groupdetail", required: false)
+    }*@
